@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hiis_app/home.dart';
-import 'package:hiis_app/yeardata.dart';
 
 void main() => runApp(const MyApp());
 
