@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hiis_app/home.dart';
+//import 'package:hiis_app/home.dart';
+import 'package:hiis_app/welcome.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,15 +9,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'HIIS App',
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'HISS App',
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text('HISS APP'),
-          ),
           body:
               //ImageListn()
-              const HomePagenew()),
+              MyHomePage()),
     );
   }
 }

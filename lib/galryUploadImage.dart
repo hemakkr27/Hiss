@@ -17,7 +17,7 @@ class _GalryAndCamraUploadState extends State<GalryAndCamraUpload> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Image Picker"),
+          title: const Text("Image Picker"),
         ),
         body: Container(
             child: imageFile == null
@@ -31,7 +31,7 @@ class _GalryAndCamraUploadState extends State<GalryAndCamraUpload> {
                           onPressed: () {
                             _getFromGallery();
                           },
-                          child: Text("PICK FROM GALLERY"),
+                          child: const Text("PICK FROM GALLERY"),
                         ),
                         Container(
                           height: 40.0,
@@ -41,7 +41,7 @@ class _GalryAndCamraUploadState extends State<GalryAndCamraUpload> {
                           onPressed: () {
                             _getFromCamera();
                           },
-                          child: Text("PICK FROM CAMERA"),
+                          child: const Text("PICK FROM CAMERA"),
                         )
                       ],
                     ),

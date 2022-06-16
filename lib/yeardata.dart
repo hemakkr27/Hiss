@@ -13,12 +13,32 @@ class yeardatacls extends StatefulWidget {
 
 class _yeardataclsState extends State<yeardatacls> {
   List<String> yearwisedata = [
+    '1962-63',
+    '1966-67',
+    '1967-68',
+    '1968-69',
+    '1969-70',
+    '1970-71',
+    '1971-72',
+    '1972-73',
+    '1973-74',
+    '1974-75',
+    '1975-76',
+    '1976-77',
+    '1977-78',
+    '1978-79',
+    '1979-80',
+    '1980-81',
+    '1981-82',
+    '1982-83',
+    '1983-84',
+    '1984-85',
+    '1987-88',
+    '1988-89',
     '1994-95',
-    '1991',
-    '1992',
-    '1993',
-    '1994',
-    '1995'
+    '2000-01',
+    '2002-03',
+    '2003-04',
   ];
   @override
   Widget build(BuildContext context) {
@@ -26,69 +46,51 @@ class _yeardataclsState extends State<yeardatacls> {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Material App Bar'),
+          title: Text('Yearwise Data'),
         ),
-        body: Column(
-          children: [
-            ElevatedButton(
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const GalryAndCamraUpload()),
-              ),
-              child: const Text("Add Image"),
-            ),
-            // GestureDetector(
-            //   child: Text("Add Image"),
-            //   onTap: () => Navigator.push(
-            //     context,
-            //     MaterialPageRoute(builder: (context) => GalryAndCamraUpload()),
-            //   ),
-            // ),
-            ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemCount: yearwisedata == null ? 0 : yearwisedata.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                      padding: const EdgeInsets.only(left: 5, right: 5, top: 7),
-                      child: yearwisedata != null
-                          ?
-                          // GridView(
-                          //     shrinkWrap: true,
-                          //     padding: const EdgeInsets.only(
-                          //         left: 24, right: 24, top: 24),
-                          //     gridDelegate:
-                          //         const SliverGridDelegateWithFixedCrossAxisCount(
-                          //             crossAxisCount: 2,
-                          //             crossAxisSpacing: 16,
-                          //             mainAxisSpacing: 16),
-                          //     children: [
+        body: SingleChildScrollView(
+          child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              itemCount: yearwisedata == null ? 0 : yearwisedata.length,
+              itemBuilder: (context, index) {
+                return Container(
+                    padding: const EdgeInsets.only(left: 5, right: 5, top: 7),
+                    child: yearwisedata != null
+                        ?
+                        // GridView(
+                        //     shrinkWrap: true,
+                        //     padding: const EdgeInsets.only(
+                        //         left: 24, right: 24, top: 24),
+                        //     gridDelegate:
+                        //         const SliverGridDelegateWithFixedCrossAxisCount(
+                        //             crossAxisCount: 2,
+                        //             crossAxisSpacing: 16,
+                        //             mainAxisSpacing: 16),
+                        //     children: [
 
-                          InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => ImageListn(
-                                          year: yearwisedata[index],
-                                          secode: widget.seccode,
-                                        )));
-                              },
-                              child: Card(
-                                shape: const RoundedRectangleBorder(
-                                    side: BorderSide(
-                                        width: 2, color: Colors.green)),
-                                child: ListTile(
-                                    trailing: Icon(Icons.arrow_forward),
-                                    leading: Icon(Icons.ac_unit),
-                                    title:
-                                        Text(yearwisedata[index].toString())),
-                              ),
-                            )
-                          // ],
-                          // )
-                          : const Text("loading image"));
-                }),
-          ],
+                        InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => ImageListn(
+                                        year: yearwisedata[index],
+                                        secode: widget.seccode,
+                                      )));
+                            },
+                            child: Card(
+                              shape: const RoundedRectangleBorder(
+                                  side: BorderSide(
+                                      width: 2, color: Colors.green)),
+                              child: ListTile(
+                                  trailing: Icon(Icons.arrow_forward),
+                                  leading: Icon(Icons.book_online_outlined),
+                                  title: Text(yearwisedata[index].toString())),
+                            ),
+                          )
+                        // ],
+                        // )
+                        : const Text("loading image"));
+              }),
         ),
       ),
     );

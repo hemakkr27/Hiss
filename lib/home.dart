@@ -29,7 +29,7 @@ class _HomePagenewState extends State<HomePagenew> {
   Future<List<PartData>?> fetchData() async {
     try {
       http.Response response =
-          await http.get(Uri.parse('http://103.87.24.58/hiisapi/PartMas'));
+          await http.get(Uri.parse('http://164.100.200.46/hiisapi/PartMas'));
       if (response.statusCode == 200) {
         partResponse = partDataFromJson(response.body);
         return partResponse;
@@ -44,7 +44,7 @@ class _HomePagenewState extends State<HomePagenew> {
   Future<List<SectionData>?> fetchsectData(String id) async {
     try {
       http.Response response = await http
-          .get(Uri.parse('http://103.87.24.58/hiisapi/SectionMas/' + id));
+          .get(Uri.parse('http://164.100.200.46/hiisapi/SectionMas/' + id));
       if (response.statusCode == 200) {
         sectionResponse = sectionDataFromJson(response.body);
         return sectionResponse;
@@ -59,7 +59,7 @@ class _HomePagenewState extends State<HomePagenew> {
   Future<List<ChapterData>?> fetchchepttData() async {
     try {
       http.Response response =
-          await http.get(Uri.parse('http://103.87.24.58/hiisapi/Chapter'));
+          await http.get(Uri.parse('http://164.100.200.46/hiisapi/Chapter'));
       if (response.statusCode == 200) {
         chapterResponse = chapterDataFromJson(response.body);
         //  chapterResponse1 = chapterResponse;
@@ -116,150 +116,159 @@ class _HomePagenewState extends State<HomePagenew> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('HIIS APP'),
+        ),
         body: SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(children: [
-          Container(
-            child: FormField<String>(builder: (FormFieldState<String> state) {
-              return InputDecorator(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5.0))),
-                child: DropdownButton(
-                  elevation: 16,
-                  style: const TextStyle(
-                      color: Colors.blueGrey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.transparent,
-                  ),
-                  isExpanded: true,
-                  hint: const Text(
-                    "Part",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  value: partvalue,
-                  // ignore: prefer_null_aware_operators
-                  items: partResponse != null
-                      ? partResponse?.map((item) {
-                          return DropdownMenuItem<String>(
-                              value: item.partCode.toString(),
-                              child: Text(item.partName));
-                        }).toList()
-                      : null,
-                  onChanged: (item) {
-                    partvalue = item.toString();
-                    setSection(partvalue.toString());
-                  },
-                ),
-              );
-            }),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-            child: FormField<String>(builder: (FormFieldState<String> state) {
-              return InputDecorator(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(5.0))),
-                child: DropdownButton(
-                  elevation: 16,
-                  style: const TextStyle(
-                      color: Colors.blueGrey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
-                  // underline: Container(
-                  //   height: 2,
-                  //   color: Colors.green,
-                  // ),
-                  isExpanded: true,
-                  hint: const Text(
-                    "Section",
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  value: sectionvalue,
-                  // ignore: prefer_null_aware_operators
-                  items: sectionResponse != null
-                      ? sectionResponse?.map((item) {
-                          return DropdownMenuItem<String>(
-                              value: item.sectionCode.toString(),
-                              child: Text(item.sectionName));
-                        }).toList()
-                      : null,
-                  onChanged: (item) {
-                    sectionvalue = item.toString();
-                    setchapter(sectionvalue.toString());
-                  },
-                ),
-              );
-            }),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 20),
-            child: Card(
-              shape: const RoundedRectangleBorder(
-                  side: BorderSide(width: 2, color: Colors.green)),
-              child: ListTile(
-                leading: const Icon(Icons.search),
-                title: TextField(
-                    controller: _txtsearch,
-                    decoration: const InputDecoration(
-                      hintText: 'Topic Search', border: InputBorder.none,
-                      // hintText: 'search here...',
-                      // border: OutlineInputBorder(
-                      //     borderRadius: BorderRadius.vertical())
-                    ),
-                    onChanged: (text) => filter()),
-                trailing: const Icon(Icons.cancel),
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 20),
-            height: 300,
-            child: ListView.builder(
-                shrinkWrap: true,
-                itemCount:
-                    chapterResponse1 == null ? 0 : chapterResponse1?.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => yeardatacls(
-                              // seccode: _txtsearch.toString()
-                              // ignore: unrelated_type_equality_checks
-                              seccode: chapterResponse1![index].sectionCode == 0
-                                  ? chapterResponse1![index].sectionCode
-                                  : chapterResponse1![index].sectionCode)));
-                    },
-                    child: Card(
-                      shape: const RoundedRectangleBorder(
-                          side: BorderSide(width: 1, color: Colors.grey)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ListTile(
-                          textColor: Colors.green,
-                          title: Text(
-                            "${chapterResponse1![index].chapterName}",
-                            style: const TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                        ),
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(children: [
+              Container(
+                child:
+                    FormField<String>(builder: (FormFieldState<String> state) {
+                  return InputDecorator(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0))),
+                    child: DropdownButton(
+                      elevation: 16,
+                      style: const TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.transparent,
                       ),
+                      isExpanded: true,
+                      hint: const Text(
+                        "Select Part",
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      value: partvalue,
+                      // ignore: prefer_null_aware_operators
+                      items: partResponse != null
+                          ? partResponse?.map((item) {
+                              return DropdownMenuItem<String>(
+                                  value: item.partCode.toString(),
+                                  child: Text(item.partName));
+                            }).toList()
+                          : null,
+                      onChanged: (item) {
+                        partvalue = item.toString();
+                        setSection(partvalue.toString());
+                      },
                     ),
                   );
                 }),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                child:
+                    FormField<String>(builder: (FormFieldState<String> state) {
+                  return InputDecorator(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0))),
+                    child: DropdownButton(
+                      elevation: 16,
+                      style: const TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                      // underline: Container(
+                      //   height: 2,
+                      //   color: Colors.green,
+                      // ),
+                      isExpanded: true,
+                      hint: const Text(
+                        "Select Section",
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      value: sectionvalue,
+                      // ignore: prefer_null_aware_operators
+                      items: sectionResponse != null
+                          ? sectionResponse?.map((item) {
+                              return DropdownMenuItem<String>(
+                                  value: item.sectionCode.toString(),
+                                  child: Text(item.sectionName));
+                            }).toList()
+                          : null,
+                      onChanged: (item) {
+                        sectionvalue = item.toString();
+                        setchapter(sectionvalue.toString());
+                      },
+                    ),
+                  );
+                }),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 20),
+                child: Card(
+                  shape: const RoundedRectangleBorder(
+                      side: BorderSide(width: 2, color: Colors.green)),
+                  child: ListTile(
+                    leading: const Icon(Icons.search),
+                    title: TextField(
+                        controller: _txtsearch,
+                        decoration: const InputDecoration(
+                          hintText: 'Topic Search', border: InputBorder.none,
+                          // hintText: 'search here...',
+                          // border: OutlineInputBorder(
+                          //     borderRadius: BorderRadius.vertical())
+                        ),
+                        onChanged: (text) => filter()),
+                    trailing: const Icon(Icons.cancel),
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 20),
+                height: 300,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount:
+                        chapterResponse1 == null ? 0 : chapterResponse1?.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => yeardatacls(
+                                  // seccode: _txtsearch.toString()
+                                  // ignore: unrelated_type_equality_checks
+                                  seccode:
+                                      chapterResponse1![index].sectionCode == 0
+                                          ? chapterResponse1![index].sectionCode
+                                          : chapterResponse1![index]
+                                              .sectionCode)));
+                        },
+                        child: Card(
+                          shape: const RoundedRectangleBorder(
+                              side: BorderSide(width: 1, color: Colors.grey)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListTile(
+                              textColor: Colors.green,
+                              title: Text(
+                                "${chapterResponse1![index].chapterName}",
+                                style: const TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ]),
           ),
-        ]),
-      ),
-    ));
+        ));
   }
 }
 
 
-//http://103.87.24.58/dsofiles/1994-95/f
+//http://164.100.200.46/dsofiles/1994-95/f
