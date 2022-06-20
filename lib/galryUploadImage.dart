@@ -11,6 +11,8 @@ class GalryAndCamraUpload extends StatefulWidget {
 
 class _GalryAndCamraUploadState extends State<GalryAndCamraUpload> {
   File? imageFile;
+  bool textscann = false;
+  String scenedtext = "";
 
   /// Widget
   @override

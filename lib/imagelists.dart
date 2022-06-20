@@ -1,4 +1,5 @@
 import 'package:flutter_share/flutter_share.dart';
+import 'package:hiis_app/main.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
@@ -57,99 +58,133 @@ class _ImageListnState extends State<ImageListn> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Material App',
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            appBar: AppBar(
-              title: const Text('Chapterwise Data'),
-            ),
-            body: ListView.builder(
-                itemCount: imageResponse == null ? 0 : imageResponse?.length,
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: (() => setState(() {
-                          selectedindex = index;
-                          Shareurl = "http://164.100.200.46/dsofiles/" +
-                              widget.year +
-                              "/" +
-                              imageResponse![index].imgurl;
-                        })),
-                    child: Container(
-                        height: MediaQuery.of(context).size.height - 120,
-                        margin: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: selectedindex == index
-                                  ? Colors.red
-                                  : Colors.black,
-                              width: 3),
-                        ),
-                        child: imageResponse != null
-                            ? InteractiveViewer(
-                                boundaryMargin: EdgeInsets.all(5.0),
-                                constrained: zoomvalue,
-                                // minScale: selectedindex == index
-                                //     ? zoomeffectminScale
-                                //     : 0.1,
-                                // maxScale: selectedindex == index
-                                //     ? zoomeffectmaxScale
-                                //     : 0.5,
-                                child: RotatedBox(
-                                  quarterTurns:
-                                      selectedindex == index ? rotatetrun : 0,
-                                  child: Image(
-                                    fit: BoxFit.cover,
-                                    image: NetworkImage(
-                                        "http://164.100.200.46/dsofiles/" +
-                                            widget.year +
-                                            "/" +
-                                            imageResponse![index].imgurl),
-                                  ),
-                                ),
-                              )
-                            : const CircularProgressIndicator()),
-                  );
-                }),
-            floatingActionButton: SpeedDial(
-              animatedIcon: AnimatedIcons.menu_home,
-              // backgroundColor: Colors.black,
-              children: [
-                SpeedDialChild(
-                    child: Icon(Icons.zoom_out),
-                    label: "zoom out",
-                    onTap: () {
-                      setState(() {
-                        // zoomeffectminScale + 0.1;
-                        zoomvalue = true;
-                      });
-                    }),
-                SpeedDialChild(
-                    child: Icon(Icons.zoom_in),
-                    label: "zoom in",
-                    onTap: () {
-                      setState(() {
-                        // zoomeffectmaxScale - 0.5;
-                        zoomvalue = false;
-                      });
-                    }),
-                SpeedDialChild(
-                  child: Icon(Icons.share),
-                  label: "Share",
-                  onTap: () {
-                    FlutterShare.share(title: "HIsS Image", linkUrl: Shareurl);
-                  },
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: colorCustom,
+          title: const Text('Chapterwise Data'),
+        ),
+        body: ListView.builder(
+            itemCount: imageResponse == null ? 0 : imageResponse?.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: (() => setState(() {
+                      selectedindex = index;
+                      Shareurl = "http://164.100.200.46/dsofiles/" +
+                          widget.year +
+                          "/" +
+                          imageResponse![index].imgurl;
+                    })),
+                child: Container(
+                    height: MediaQuery.of(context).size.height - 120,
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color:
+                              selectedindex == index ? Colors.red : colorCustom,
+                          width: 3),
+                    ),
+                    child: imageResponse != null
+                        ? InteractiveViewer(
+                            boundaryMargin: EdgeInsets.all(5.0),
+                            constrained: zoomvalue,
+                            // minScale: selectedindex == index
+                            //     ? zoomeffectminScale
+                            //     : 0.1,
+                            // maxScale: selectedindex == index
+                            //     ? zoomeffectmaxScale
+                            //     : 0.5,
+                            child: RotatedBox(
+                              quarterTurns:
+                                  selectedindex == index ? rotatetrun : 0,
+                              child: Image.network(
+                                "http://164.100.200.46/dsofiles/" +
+                                    widget.year +
+                                    "/" +
+                                    imageResponse![index].imgurl,
+                                fit: BoxFit.cover,
+                                loadingBuilder:
+                                    (context, child, loadingProgress) {
+                                  if (loadingProgress == null) {
+                                    return child;
+                                  } else {
+                                    return const Center(
+                                        child: SizedBox(
+                                      width: 30,
+                                      height: 30,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                      ),
+                                    ));
+                                  }
+                                  // You can use LinearProgressIndicator or CircularProgressIndicator instead
+                                },
+                              ),
+                            ),
+                          )
+                        : const Center(
+                            child: CircularProgressIndicator(
+                            color: Colors.red,
+                          ))),
+              );
+            }),
+        floatingActionButton: SpeedDial(
+          animatedIcon: AnimatedIcons.menu_home,
+          backgroundColor: colorCustom,
+          children: [
+            SpeedDialChild(
+                child: Icon(
+                  Icons.zoom_out,
+                  color: colorCustom,
                 ),
-                SpeedDialChild(
-                    child: const Icon(Icons.screen_rotation),
-                    label: "Rotate",
-                    onTap: () {
-                      setState(() {
-                        rotatetrun = rotatetrun + 1;
-                      });
-                    })
-              ],
-            )));
+                label: "zoom out",
+                onTap: () {
+                  setState(() {
+                    // zoomeffectminScale + 0.1;
+                    zoomvalue = true;
+                  });
+                }),
+            SpeedDialChild(
+                child: Icon(
+                  Icons.zoom_in,
+                  color: colorCustom,
+                ),
+                label: "zoom in",
+                onTap: () {
+                  setState(() {
+                    // zoomeffectmaxScale - 0.5;
+                    zoomvalue = false;
+                  });
+                }),
+            SpeedDialChild(
+              child: Icon(
+                Icons.share,
+                color: colorCustom,
+              ),
+              label: "Share",
+              onTap: () {
+                FlutterShare.share(title: "HIsS Image", linkUrl: Shareurl);
+              },
+            ),
+            SpeedDialChild(
+                child: Icon(
+                  Icons.screen_rotation,
+                  color: colorCustom,
+                ),
+                label: "Rotate",
+                onTap: () {
+                  setState(() {
+                    rotatetrun = rotatetrun + 1;
+                  });
+                }),
+            // SpeedDialChild(
+            //   child: Icon(Icons.copy),
+            //   label: "Copy",
+            //   onTap: () {
+            //     setState(() {});
+            //   },
+            // ),
+          ],
+        ));
   }
 }
 
