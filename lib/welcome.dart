@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:hiis_app/main.dart';
 
 import 'home.dart';
 import 'locslider.dart';
@@ -29,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final textScale = MediaQuery.of(context).textScaleFactor;
     print(textScale);
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 232, 224, 255),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -42,9 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       blendMode: BlendMode.modulate,
                       shaderCallback: (size) => const LinearGradient(
                         colors: [
-                          Color.fromARGB(255, 208, 151, 255),
-                          Colors.deepPurpleAccent,
-                          Colors.purple
+                          Color.fromARGB(255, 24, 50, 136),
+                          Color.fromARGB(255, 59, 47, 150),
+                          Color.fromARGB(255, 182, 126, 192)
                         ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
@@ -68,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   Text(
                     '(HISS)',
