@@ -55,62 +55,66 @@ class _yeardataclsState extends State<yeardatacls> {
         ),
       ),
       body: SingleChildScrollView(
-        child: ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            itemCount: yearwisedata == null ? 0 : yearwisedata.length,
-            itemBuilder: (context, index) {
-              return Container(
-                  padding: const EdgeInsets.only(left: 5, right: 5, top: 7),
-                  child: yearwisedata != null
-                      ?
-                      // GridView(
-                      //     shrinkWrap: true,
-                      //     padding: const EdgeInsets.only(
-                      //         left: 24, right: 24, top: 24),
-                      //     gridDelegate:
-                      //         const SliverGridDelegateWithFixedCrossAxisCount(
-                      //             crossAxisCount: 2,
-                      //             crossAxisSpacing: 16,
-                      //             mainAxisSpacing: 16),
-                      //     children: [
+        child: Container(
+          height: 700,
+          child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              itemCount: yearwisedata == null ? 0 : yearwisedata.length,
+              itemBuilder: (context, index) {
+                return Container(
+                    padding: const EdgeInsets.only(left: 5, right: 5, top: 7),
+                    child: yearwisedata != null
+                        ?
+                        // GridView(
+                        //     shrinkWrap: true,
+                        //     padding: const EdgeInsets.only(
+                        //         left: 24, right: 24, top: 24),
+                        //     gridDelegate:
+                        //         const SliverGridDelegateWithFixedCrossAxisCount(
+                        //             crossAxisCount: 2,
+                        //             crossAxisSpacing: 16,
+                        //             mainAxisSpacing: 16),
+                        //     children: [
 
-                      InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ImageListn(
-                                      year: yearwisedata[index],
-                                      secode: widget.seccode,
-                                    )));
-                          },
-                          child: Card(
-                            shape: const RoundedRectangleBorder(
-                                side: BorderSide(
-                                    width: 2, color: Colors.deepPurpleAccent)),
-                            child: ListTile(
-                                trailing: Icon(
-                                  Icons.arrow_forward,
-                                  color: colorCustom,
-                                ),
-                                leading: Icon(
-                                  Icons.book_online_outlined,
-                                  color: colorCustom,
-                                ),
-                                title: Text(
-                                  yearwisedata[index].toString(),
-                                  style: TextStyle(
-                                      color: colorCustom,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                )),
-                          ),
-                        )
-                      // ],
-                      // )
-                      : const Center(
-                          child: CircularProgressIndicator(),
-                        ));
-            }),
+                        InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => ImageListn(
+                                        year: yearwisedata[index],
+                                        secode: widget.seccode,
+                                      )));
+                            },
+                            child: Card(
+                              shape: const RoundedRectangleBorder(
+                                  side: BorderSide(
+                                      width: 2,
+                                      color: Colors.deepPurpleAccent)),
+                              child: ListTile(
+                                  trailing: Icon(
+                                    Icons.arrow_forward,
+                                    color: colorCustom,
+                                  ),
+                                  leading: Icon(
+                                    Icons.book_online_outlined,
+                                    color: colorCustom,
+                                  ),
+                                  title: Text(
+                                    yearwisedata[index].toString(),
+                                    style: TextStyle(
+                                        color: colorCustom,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                            ),
+                          )
+                        // ],
+                        // )
+                        : const Center(
+                            child: CircularProgressIndicator(),
+                          ));
+              }),
+        ),
       ),
     );
   }

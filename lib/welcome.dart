@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           child: Text(
-                            'Haryana Integrating System of Statistics',
+                            'Haryana Integrated System of Statistics',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,

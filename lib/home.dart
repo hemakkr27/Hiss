@@ -134,6 +134,7 @@ class _HomePagenewState extends State<HomePagenew> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0))),
                 child: DropdownButton(
+                  //isDense: true,
                   elevation: 16,
                   style: const TextStyle(
                       color: Colors.blueGrey,
@@ -244,7 +245,7 @@ class _HomePagenewState extends State<HomePagenew> {
             ),
             Container(
               margin: const EdgeInsets.only(top: 20),
-              height: 300,
+              height: 600,
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount:

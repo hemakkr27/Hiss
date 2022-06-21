@@ -63,70 +63,73 @@ class _ImageListnState extends State<ImageListn> {
           backgroundColor: colorCustom,
           title: const Text('Chapterwise Data'),
         ),
-        body: ListView.builder(
-            itemCount: imageResponse == null ? 0 : imageResponse?.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: (() => setState(() {
-                      selectedindex = index;
-                      Shareurl = "http://164.100.200.46/dsofiles/" +
-                          widget.year +
-                          "/" +
-                          imageResponse![index].imgurl;
-                    })),
-                child: Container(
-                    height: MediaQuery.of(context).size.height - 120,
-                    margin: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color:
-                              selectedindex == index ? Colors.red : colorCustom,
-                          width: 3),
-                    ),
-                    child: imageResponse != null
-                        ? InteractiveViewer(
-                            boundaryMargin: EdgeInsets.all(5.0),
-                            constrained: zoomvalue,
-                            // minScale: selectedindex == index
-                            //     ? zoomeffectminScale
-                            //     : 0.1,
-                            // maxScale: selectedindex == index
-                            //     ? zoomeffectmaxScale
-                            //     : 0.5,
-                            child: RotatedBox(
-                              quarterTurns:
-                                  selectedindex == index ? rotatetrun : 0,
-                              child: Image.network(
-                                "http://164.100.200.46/dsofiles/" +
-                                    widget.year +
-                                    "/" +
-                                    imageResponse![index].imgurl,
-                                fit: BoxFit.cover,
-                                loadingBuilder:
-                                    (context, child, loadingProgress) {
-                                  if (loadingProgress == null) {
-                                    return child;
-                                  } else {
-                                    return const Center(
-                                        child: SizedBox(
-                                      width: 30,
-                                      height: 30,
-                                      child: CircularProgressIndicator(
-                                        strokeWidth: 2,
-                                      ),
-                                    ));
-                                  }
-                                  // You can use LinearProgressIndicator or CircularProgressIndicator instead
-                                },
-                              ),
-                            ),
-                          )
-                        : const Center(
-                            child: CircularProgressIndicator(
-                            color: Colors.red,
-                          ))),
-              );
-            }),
+        body: imageResponse != null
+            ? ListView.builder(
+                itemCount: imageResponse == null ? 0 : imageResponse?.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: (() => setState(() {
+                          selectedindex = index;
+                          Shareurl = "http://164.100.200.46/dsofiles/" +
+                              widget.year +
+                              "/" +
+                              imageResponse![index].imgurl;
+                        })),
+                    child: Container(
+                        height: MediaQuery.of(context).size.height - 100,
+                        margin: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: selectedindex == index
+                                  ? Colors.red
+                                  : colorCustom,
+                              width: 3),
+                        ),
+                        child: imageResponse != null
+                            ? InteractiveViewer(
+                                // boundaryMargin: EdgeInsets.all(5.0),
+                                constrained: zoomvalue,
+                                // minScale: selectedindex == index
+                                //     ? zoomeffectminScale
+                                //     : 0.1,
+                                // maxScale: selectedindex == index
+                                //     ? zoomeffectmaxScale
+                                //     : 0.5,
+                                child: RotatedBox(
+                                  quarterTurns:
+                                      selectedindex == index ? rotatetrun : 0,
+                                  child: Image.network(
+                                    "http://164.100.200.46/dsofiles/" +
+                                        widget.year +
+                                        "/" +
+                                        imageResponse![index].imgurl,
+                                    fit: BoxFit.fill,
+                                    loadingBuilder:
+                                        (context, child, loadingProgress) {
+                                      if (loadingProgress == null) {
+                                        return child;
+                                      } else {
+                                        return const Center(
+                                            child: SizedBox(
+                                          width: 30,
+                                          height: 30,
+                                          child: CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                          ),
+                                        ));
+                                      }
+                                      // You can use LinearProgressIndicator or CircularProgressIndicator instead
+                                    },
+                                  ),
+                                ),
+                              )
+                            : const Center(
+                                child: CircularProgressIndicator(
+                                color: Colors.red,
+                              ))),
+                  );
+                })
+            : Center(child: Text("No Record Available")),
         floatingActionButton: SpeedDial(
           animatedIcon: AnimatedIcons.menu_home,
           backgroundColor: colorCustom,
