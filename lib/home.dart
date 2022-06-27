@@ -1,3 +1,5 @@
+// ignore: unnecessary_import
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -118,7 +120,7 @@ class _HomePagenewState extends State<HomePagenew> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HISS APP'),
+        title: const Text('Haryana Integrated System of Statistics (HISS) '),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -134,7 +136,7 @@ class _HomePagenewState extends State<HomePagenew> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0))),
                 child: DropdownButton(
-                  //isDense: true,
+                  isDense: true,
                   elevation: 16,
                   style: const TextStyle(
                       color: Colors.blueGrey,
@@ -178,10 +180,11 @@ class _HomePagenewState extends State<HomePagenew> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15.0))),
                 child: DropdownButton(
+                  isDense: true,
                   elevation: 16,
                   style: const TextStyle(
                       color: Colors.blueGrey,
-                      fontSize: 20,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold),
                   underline: Container(
                     height: 2,
@@ -244,7 +247,9 @@ class _HomePagenewState extends State<HomePagenew> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(
+                top: 20,
+              ),
               height: 600,
               child: ListView.builder(
                   shrinkWrap: true,
@@ -255,6 +260,7 @@ class _HomePagenewState extends State<HomePagenew> {
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => yeardatacls(
+                                heading: chapterResponse1![index].chapterName,
                                 // seccode: _txtsearch.toString()
                                 // ignore: unrelated_type_equality_checks
                                 seccode: chapterResponse1![index].sectionCode ==
@@ -263,19 +269,42 @@ class _HomePagenewState extends State<HomePagenew> {
                                     : chapterResponse1![index].sectionCode)));
                       },
                       child: Card(
+                        color: Colors.primaries[
+                            Random().nextInt(Colors.primaries.length)],
                         shape: const RoundedRectangleBorder(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(50),
+                            ),
                             side: BorderSide(
-                          width: 1,
-                          color: Colors.grey,
-                        )),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: ListTile(
-                            textColor: Colors.blueGrey,
-                            title: Text(
-                              "${chapterResponse1![index].chapterName}",
-                              style: const TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
+                              width: 4,
+                              color: Colors.grey,
+                            )),
+                        child: ListTile(
+                          dense: true,
+                          textColor: Colors.black,
+                          title: Expanded(
+                            child: Row(
+                              children: [
+                                Container(
+                                    padding: new EdgeInsets.only(right: 20.0),
+                                    child: new CircleAvatar(
+                                      backgroundColor: new Color(0xFFF5F5F5),
+                                      radius: 10.0,
+                                    )),
+                                // Icon(Icons.arrow_forward),
+
+                                Flexible(
+                                  child: Text(
+                                    "${chapterResponse1![index].chapterName}",
+                                    maxLines: 1,
+                                    style: const TextStyle(
+                                        // fontSize: 15,
+
+                                        overflow: TextOverflow.ellipsis,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -289,6 +318,5 @@ class _HomePagenewState extends State<HomePagenew> {
     );
   }
 }
-
 
 //http://164.100.200.46/dsofiles/1994-95/f

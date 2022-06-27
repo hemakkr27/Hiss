@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hiis_app/main.dart';
 
+import 'firstscr.dart';
 import 'home.dart';
 import 'locslider.dart';
 
@@ -20,9 +21,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Timer(
-        const Duration(seconds: 5),
+        const Duration(seconds: 3),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePagenew())));
+            context, MaterialPageRoute(builder: (context) => Firstscrn())));
   }
 
   @override
@@ -85,9 +86,13 @@ class _MyHomePageState extends State<MyHomePage> {
             Image.asset(
               "assets/images/logoimg.png",
             ),
+            // Image.asset(
+            //   "assets/images/homescr.JPG",
+            //   width: MediaQuery.of(context).size.width / 1.2,
+            // ),
             Image.asset(
-              "assets/images/niclogo1.png",
-              // /width: MediaQuery.of(context).size.width / 1.5,
+              "assets/images/Niclogo.png",
+              width: MediaQuery.of(context).size.width / 1.5,
             ),
           ],
         ),

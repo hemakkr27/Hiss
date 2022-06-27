@@ -9,7 +9,12 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 class ImageListn extends StatefulWidget {
   String year;
   String secode;
-  ImageListn({Key? key, required this.year, required this.secode})
+  String heading;
+  ImageListn(
+      {Key? key,
+      required this.year,
+      required this.secode,
+      required this.heading})
       : super(key: key);
 
   @override
@@ -61,7 +66,7 @@ class _ImageListnState extends State<ImageListn> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: colorCustom,
-          title: const Text('Chapterwise Data'),
+          title: Text(widget.heading),
         ),
         body: imageResponse != null && imageResponse?.length != 0
             ? ListView.builder(
