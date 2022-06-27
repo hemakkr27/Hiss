@@ -269,40 +269,37 @@ class _HomePagenewState extends State<HomePagenew> {
                                     : chapterResponse1![index].sectionCode)));
                       },
                       child: Card(
-                        color: Colors.primaries[
-                            Random().nextInt(Colors.primaries.length)],
                         shape: const RoundedRectangleBorder(
                             borderRadius: const BorderRadius.all(
                               Radius.circular(50),
                             ),
                             side: BorderSide(
-                              width: 4,
-                              color: Colors.grey,
+                              width: 1,
+                              color: Colors.black,
                             )),
                         child: ListTile(
                           dense: true,
                           textColor: Colors.black,
-                          title: Expanded(
+                          title: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
                             child: Row(
                               children: [
                                 Container(
                                     padding: new EdgeInsets.only(right: 20.0),
                                     child: new CircleAvatar(
-                                      backgroundColor: new Color(0xFFF5F5F5),
+                                      backgroundColor: Colors.primaries[Random()
+                                          .nextInt(Colors.primaries.length)],
                                       radius: 10.0,
                                     )),
                                 // Icon(Icons.arrow_forward),
 
-                                Flexible(
-                                  child: Text(
-                                    "${chapterResponse1![index].chapterName}",
-                                    maxLines: 1,
-                                    style: const TextStyle(
-                                        // fontSize: 15,
+                                Text(
+                                  "${chapterResponse1![index].chapterName}",
+                                  style: const TextStyle(
+                                      // fontSize: 15,
 
-                                        overflow: TextOverflow.ellipsis,
-                                        fontWeight: FontWeight.bold),
-                                  ),
+                                      overflow: TextOverflow.ellipsis,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
