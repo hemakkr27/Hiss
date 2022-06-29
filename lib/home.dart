@@ -3,6 +3,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+
 import 'package:hiis_app/chaptermodel.dart';
 import 'package:hiis_app/main.dart';
 
@@ -24,6 +25,7 @@ class _HomePagenewState extends State<HomePagenew> {
   List<SectionData>? sectionResponse;
   List<ChapterData>? chapterResponse;
   List<ChapterData>? chapterResponse1;
+
   String? partvalue;
   String? sectionvalue;
   String? chaptervalue;
@@ -108,7 +110,7 @@ class _HomePagenewState extends State<HomePagenew> {
   @override
   void initState() {
     super.initState();
-
+    fetchchepttData().then((value) => null);
     fetchData().then((users) {
       setState(() {
         partResponse = users;
