@@ -37,6 +37,10 @@ class _HomePagenewState extends State<HomePagenew> {
           await http.get(Uri.parse('http://164.100.200.46/hiisapi/PartMas'));
       if (response.statusCode == 200) {
         partResponse = partDataFromJson(response.body);
+
+// if we add in list (one item) than use this add code
+
+        partResponse?.add(new PartData(partName: "All", partCode: "0"));
         return partResponse;
       } else {
         return throw Exception('Failed to load ...');
