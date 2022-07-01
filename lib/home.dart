@@ -1,6 +1,5 @@
 // ignore: unnecessary_import
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -38,7 +37,7 @@ class _HomePagenewState extends State<HomePagenew> {
       if (response.statusCode == 200) {
         partResponse = partDataFromJson(response.body);
 
-// if we add in list (one item) than use this add code
+// if we add ( one variable) (one item) inlist  than use this add code
 
         partResponse?.add(new PartData(partName: "All", partCode: "0"));
         return partResponse;
@@ -269,10 +268,10 @@ class _HomePagenewState extends State<HomePagenew> {
                                 heading: chapterResponse1![index].chapterName,
                                 // seccode: _txtsearch.toString()
                                 // ignore: unrelated_type_equality_checks
-                                seccode: chapterResponse1![index].sectionCode ==
-                                        0
-                                    ? chapterResponse1![index].sectionCode
-                                    : chapterResponse1![index].sectionCode)));
+                                seccode: chapterResponse1![index].sectionCode +
+                                    (chapterResponse1![index].chapterCode)
+                                        .toString()
+                                        .padLeft(2, '0'))));
                       },
                       child: Card(
                         shape: const RoundedRectangleBorder(
