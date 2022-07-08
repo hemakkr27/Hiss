@@ -12,6 +12,9 @@ import 'package:hiis_app/yeardata.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 
+import 'districtstatistical.dart';
+import 'ebookdata.dart';
+
 class HomePagenew extends StatefulWidget {
   const HomePagenew({Key? key}) : super(key: key);
 
@@ -40,6 +43,7 @@ class _HomePagenewState extends State<HomePagenew> {
 // if we add ( one variable) (one item) inlist  than use this add code
 
         partResponse?.add(new PartData(partName: "All", partCode: "0"));
+
         return partResponse;
       } else {
         return throw Exception('Failed to load ...');
@@ -125,8 +129,55 @@ class _HomePagenewState extends State<HomePagenew> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Haryana Integrated System of Statistics (HISS) '),
+        title: Text('Haryana Integrated System of Statistics (HISS) '),
       ),
+      drawer: Drawer(
+          child: ListView(padding: EdgeInsets.zero, children: <Widget>[
+        DrawerHeader(
+          decoration: BoxDecoration(
+            color: colorCustom,
+          ),
+          child: Text(
+            'Haryana Integrated System of Statistics (HISS)',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+            ),
+          ),
+        ),
+        Padding(padding: EdgeInsets.all(10)),
+        Card(
+          child: ListTile(
+            leading: const Icon(Icons.list),
+            title: InkWell(
+                child: Text('Statistical Abstract of Haryana ebook'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ebookdata()));
+                }),
+          ),
+        ),
+        Card(
+          child: ListTile(
+            leading: const Icon(Icons.list),
+            title: InkWell(
+                child: Text('District-statistical-abstracts-Kurukshetra ebook'),
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => districtstatistical()));
+                }),
+          ),
+        ),
+        // Card(
+        //   child: ListTile(
+        //     leading: const Icon(Icons.list),
+        //     title: InkWell(
+        //         child: Text('Economic Survey of Haryana'), onTap: () {}),
+        //   ),
+        // ),
+      ])),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
