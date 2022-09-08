@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 //import 'package:hiis_app/home.dart';
 import 'package:hiis_app/welcome.dart';
 
+import 'firstscr.dart';
+
 void main() => runApp(MaterialApp(
     theme: _themeData,
     debugShowCheckedModeBanner: false,
@@ -39,7 +41,8 @@ class MyApp extends StatelessWidget {
     return Scaffold(
         body:
             //ImageListn()
-            MyHomePage());
+            //  MyHomePage());
+            Firstscrn());
   }
 }
 
@@ -47,3 +50,30 @@ class MyApp extends StatelessWidget {
 
 
 //https://api.flutter.dev/flutter/material/Colors-class.html
+
+    
+
+
+
+          
+
+
+              // OutlinedButton.icon(
+              //     icon: Icon(Icons.star_outline),
+              //     label: Text("OutlinedButton"),
+              //     onPressed: () => print("it's pressed"),
+              //     style: ElevatedButton.styleFrom(
+              //       side: BorderSide(
+              //         width: 2.0,
+              //       ),
+              //       shape: RoundedRectangleBorder(
+              //           borderRadius: const BorderRadius.all(
+              //             Radius.circular(50),
+              //           ),
+              //           side: BorderSide(
+              //             width: 2,
+              //             color: Colors.primaries[
+              //                 Random().nextInt(Colors.primaries.length)],
+              //           )),
+              //     ),
+              //   ),

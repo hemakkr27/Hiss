@@ -12,7 +12,7 @@ Uri dser_1617 = Uri.parse('https://heyzine.com/flip-book/6e2df523b1.html');
 Uri dser_1718 = Uri.parse('https://heyzine.com/flip-book/2647217802.html');
 Uri dser_1819 = Uri.parse('https://heyzine.com/flip-book/bdbe75dabe.html');
 Uri dser_1920 = Uri.parse('https://heyzine.com/flip-book/804056209c.html');
-Uri dser_2021 = Uri.parse('https://heyzine.com/flip-book/c4dec62521.html');
+Uri dser_2021 = Uri.parse('https://heyzine.com/flip-book/02b5a7ad2a.html');
 
 class ebookdata extends StatefulWidget {
   const ebookdata({Key? key}) : super(key: key);
