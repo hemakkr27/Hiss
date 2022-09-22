@@ -30,6 +30,7 @@ Uri dser_21718 = Uri.parse('https://heyzine.com/flip-book/18b013f1c3.html');
 Uri dser_21819 = Uri.parse('https://heyzine.com/flip-book/e657947be5.html');
 
 Uri dser_21920 = Uri.parse('https://heyzine.com/flip-book/5f2ad9c418.html');
+String title = "";
 
 class Economicbokdata extends StatefulWidget {
   const Economicbokdata({Key? key}) : super(key: key);
@@ -40,7 +41,19 @@ class Economicbokdata extends StatefulWidget {
 
 class _EconomicbokdataState extends State<Economicbokdata> {
   Future<void> _launch(Uri url) async {
-    await UL.canLaunchUrl(url) ? await UL.launchUrl(url) : Text("not found");
+    //  await UL.canLaunchUrl(url) ? await UL.launchUrl(url) : Text("not found");
+
+    try {
+      if (!await UL.launchUrl(url)) {
+        setState(() {
+          title = 'Could not launch $url';
+        });
+      }
+    } catch (e) {
+      setState(() {
+        title = e.toString();
+      });
+    }
   }
 
   @override

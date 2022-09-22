@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hiis_app/welcome.dart';
 
 import 'firstscr.dart';
+import 'locslider.dart';
 
 void main() => runApp(MaterialApp(
     theme: _themeData,
@@ -41,8 +42,10 @@ class MyApp extends StatelessWidget {
     return Scaffold(
         body:
             //ImageListn()
-            //  MyHomePage());
-            Firstscrn());
+          //  MyHomePage());
+      Firstscrn()
+    //  LocSlider(),
+     );
   }
 }
 

@@ -8,7 +8,9 @@ import 'Economicbook.dart';
 import 'ebookdata.dart';
 import 'home.dart';
 
-import 'package:url_launcher/url_launcher.dart' as UL;
+import 'package:url_launcher/url_launcher.dart';
+
+import 'locslider.dart';
 
 Uri disstab = Uri.parse('https://heyzine.com/flip-book/1bae3ca2c2.html');
 
@@ -27,7 +29,13 @@ class _FirstscrnState extends State<Firstscrn> {
   }
 
   Future<void> _launch(Uri url) async {
-    await UL.canLaunchUrl(url) ? await UL.launchUrl(url) : Text("not found");
+    try {
+      if (!await launchUrl(url)) {
+        await launchUrl(url);
+      }
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   // void search(String query) {
@@ -62,7 +70,9 @@ class _FirstscrnState extends State<Firstscrn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("HISS"),
+      ),
       drawer: Drawer(
           child: Column(children: <Widget>[
         Container(
@@ -127,19 +137,28 @@ class _FirstscrnState extends State<Firstscrn> {
           ),
         ),
       ])),
-      backgroundColor: Color.fromARGB(255, 232, 224, 255),
+      // backgroundColor: Color.fromARGB(255, 232, 224, 255),
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(
-              "assets/images/Picture2.jpg",
-              width: MediaQuery.of(context).size.width / 1.1,
+            Container(
+              width: double.infinity,
+              child: Image.asset(
+                "assets/images/newimgset.gif",
+                fit: BoxFit.fill,
+                width: MediaQuery.of(context).size.width / 1.1,
+              ),
             ),
-            Image.asset(
-              "assets/images/Picture3.png",
-              width: MediaQuery.of(context).size.width / 1.5,
-            ),
+            // Image.asset(
+            //   "assets/images/Picture2.jpg",
+            //   width: MediaQuery.of(context).size.width / 1.1,
+            // ),
+            // Image.asset(
+            //   "assets/images/Picture3.png",
+            //   width: MediaQuery.of(context).size.width / 1.5,
+            // ),
           ],
         ),
       ),

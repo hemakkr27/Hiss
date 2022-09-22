@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart' as UL;
+import 'package:url_launcher/url_launcher.dart';
 
 Uri dser_1213 = Uri.parse('https://heyzine.com/flip-book/1bae3ca2c2.html');
 // Uri dser_1314 = Uri.parse('');
@@ -22,7 +22,7 @@ class districtstatistical extends StatefulWidget {
 
 class _districtstatisticalState extends State<districtstatistical> {
   Future<void> _launch(Uri url) async {
-    await UL.canLaunchUrl(url) ? await UL.launchUrl(url) : Text("not found");
+    if (!await launchUrl(url)) {}
   }
 
   @override
@@ -33,7 +33,6 @@ class _districtstatisticalState extends State<districtstatistical> {
       ),
       body: Container(
           child: ListView(padding: EdgeInsets.zero, children: <Widget>[
-      
         InkWell(
             child: Container(
               margin: EdgeInsets.only(top: 10, bottom: 10, left: 50, right: 50),
@@ -61,7 +60,6 @@ class _districtstatisticalState extends State<districtstatistical> {
             onTap: () {
               _launch(dser_1213);
             }),
-       
       ])),
     );
   }

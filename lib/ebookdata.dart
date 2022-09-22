@@ -13,6 +13,7 @@ Uri dser_1718 = Uri.parse('https://heyzine.com/flip-book/2647217802.html');
 Uri dser_1819 = Uri.parse('https://heyzine.com/flip-book/bdbe75dabe.html');
 Uri dser_1920 = Uri.parse('https://heyzine.com/flip-book/804056209c.html');
 Uri dser_2021 = Uri.parse('https://heyzine.com/flip-book/02b5a7ad2a.html');
+String title = "";
 
 class ebookdata extends StatefulWidget {
   const ebookdata({Key? key}) : super(key: key);
@@ -23,7 +24,17 @@ class ebookdata extends StatefulWidget {
 
 class _ebookdataState extends State<ebookdata> {
   Future<void> _launch(Uri url) async {
-    await UL.canLaunchUrl(url) ? await UL.launchUrl(url) : Text("not found");
+    try {
+      if (!await UL.launchUrl(url)) {
+        setState(() {
+          title = 'Could not launch $url';
+        });
+      }
+    } catch (e) {
+      setState(() {
+        title = e.toString();
+      });
+    }
   }
 
   @override
