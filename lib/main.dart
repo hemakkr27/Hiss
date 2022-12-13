@@ -42,10 +42,10 @@ class MyApp extends StatelessWidget {
     return Scaffold(
         body:
             //ImageListn()
-          //  MyHomePage());
-      Firstscrn()
-    //  LocSlider(),
-     );
+            //  MyHomePage());
+            Firstscrn()
+        //  LocSlider(),
+        );
   }
 }
 
