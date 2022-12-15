@@ -146,7 +146,9 @@ class _FirstscrnState extends State<Firstscrn> {
             Container(
               width: double.infinity,
               child: Image.asset(
-                "assets/images/newimgset.gif",
+                "assets/images/hissgif_img.gif",
+                //  "assets/images/newimgset.gif",
+
                 fit: BoxFit.fill,
                 width: MediaQuery.of(context).size.width / 1.1,
               ),
