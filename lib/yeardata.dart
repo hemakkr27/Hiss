@@ -58,7 +58,8 @@ class _yeardataclsState extends State<yeardatacls> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          height: 700,
+          margin: EdgeInsets.only(left: 15, right: 15, top: 7),
+          //height: 700,
           child: ListView.builder(
               reverse: true,
               shrinkWrap: true,
