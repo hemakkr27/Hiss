@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:hiis_app/galryUploadImage.dart';
 import 'package:hiis_app/main.dart';
 import 'package:hiis_app/yearswisedata.dart';
@@ -57,6 +58,7 @@ class _yeardataclsState extends State<yeardatacls> {
         ),
       ),
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Container(
           margin: EdgeInsets.only(left: 15, right: 15, top: 7),
           //height: 700,
