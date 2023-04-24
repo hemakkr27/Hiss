@@ -77,7 +77,7 @@ class _ImageListnState extends State<ImageListn> {
                           selectedindex = index;
                           Shareurl = "http://164.100.200.46/dsofiles/" +
                               widget.year +
-                              "/" +
+                              "/Final/" +
                               imageResponse![index].imgurl;
                         })),
                     child: Container(
@@ -106,7 +106,7 @@ class _ImageListnState extends State<ImageListn> {
                                   child: Image.network(
                                     "http://164.100.200.46/dsofiles/" +
                                         widget.year +
-                                        "/" +
+                                        "/Final/" +
                                         imageResponse![index].imgurl,
                                     fit: BoxFit.fill,
                                     loadingBuilder:
