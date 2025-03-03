@@ -4,32 +4,32 @@ import 'package:flutter/material.dart';
 
 import 'package:url_launcher/url_launcher.dart' as UL;
 
-Uri dser_19920 = Uri.parse('https://heyzine.com/flip-book/6fac8c26c4.html');
-Uri dser_20001 = Uri.parse('https://heyzine.com/flip-book/0b0e0c9089.html');
-Uri dser_20102 = Uri.parse('https://heyzine.com/flip-book/ccfaa15fac.html');
-Uri dser_20203 = Uri.parse('https://heyzine.com/flip-book/185df29b4a.html');
-Uri dser_2034 = Uri.parse('https://heyzine.com/flip-book/1ab738b049.html');
+Uri dser_19920 = Uri.parse('https://heyzine.com/flip-book/a327b2d739.html');
+Uri dser_20001 = Uri.parse('https://heyzine.com/flip-book/ab3fd865e8.html');
+Uri dser_20102 = Uri.parse('https://heyzine.com/flip-book/9f0b681d32.html');
+Uri dser_20203 = Uri.parse('https://heyzine.com/flip-book/7eb953de43.html');
+Uri dser_2034 = Uri.parse('https://heyzine.com/flip-book/167d748097.html');
+Uri dser_2045 = Uri.parse('https://heyzine.com/flip-book/0d2d328983.html');
+Uri dser_2056 = Uri.parse('https://heyzine.com/flip-book/55c30fede7.html');
+Uri dser_2067 = Uri.parse('https://heyzine.com/flip-book/7198ac63e5.html');
+Uri dser_2078 = Uri.parse('https://heyzine.com/flip-book/af32f6e579.html');
+Uri dser_2089 = Uri.parse('https://heyzine.com/flip-book/2cfaf69a95.html');
 
-Uri dser_2045 = Uri.parse('https://heyzine.com/flip-book/0b6aada5e4.html');
-Uri dser_2056 = Uri.parse('https://heyzine.com/flip-book/05255f7648.html');
-Uri dser_2067 = Uri.parse('https://heyzine.com/flip-book/94a66d4b1a.html');
-Uri dser_2078 = Uri.parse('https://heyzine.com/flip-book/e8c36d3205.html');
-Uri dser_2089 = Uri.parse('https://heyzine.com/flip-book/c636be5437.html');
+Uri dser_20910 = Uri.parse('https://heyzine.com/flip-book/d12e7f9a73.html');
+Uri dser_21011 = Uri.parse('https://heyzine.com/flip-book/73f0dc28ac.html');
 
-Uri dser_20910 = Uri.parse('https://heyzine.com/flip-book/add9ae1c2b.html');
-Uri dser_21011 = Uri.parse('https://heyzine.com/flip-book/d3061b3d98.html');
-Uri dser_21112 = Uri.parse('https://heyzine.com/flip-book/74c0459ad4.html');
-Uri dser_21213 = Uri.parse('https://heyzine.com/flip-book/20dfb82d1a.html');
-Uri dser_21314 = Uri.parse('https://heyzine.com/flip-book/6f47a441ac.html');
-Uri dser_21415 = Uri.parse('https://heyzine.com/flip-book/498a975b60.html');
-Uri dser_21516 = Uri.parse('https://heyzine.com/flip-book/43ec6746cd.html');
+Uri dser_21112 = Uri.parse('https://heyzine.com/flip-book/99d9508471.html');
+Uri dser_21213 = Uri.parse('https://heyzine.com/flip-book/cfc744823f.html');
+Uri dser_21314 = Uri.parse('https://heyzine.com/flip-book/509649a567.html');
+Uri dser_21415 = Uri.parse('https://heyzine.com/flip-book/98b5a84ccd.html');
+Uri dser_21516 = Uri.parse('https://heyzine.com/flip-book/a678f70db0.html');
 
-Uri dser_21617 = Uri.parse('https://heyzine.com/flip-book/3b39d74d7c.html');
-Uri dser_21718 = Uri.parse('https://heyzine.com/flip-book/18b013f1c3.html');
+Uri dser_21617 = Uri.parse('https://heyzine.com/flip-book/38b9bd3b46.html');
+Uri dser_21718 = Uri.parse('https://heyzine.com/flip-book/6edde1ebfd.html');
 
-Uri dser_21819 = Uri.parse('https://heyzine.com/flip-book/e657947be5.html');
+Uri dser_21819 = Uri.parse('https://heyzine.com/flip-book/ccb9fad66d.html');
 
-Uri dser_21920 = Uri.parse('https://heyzine.com/flip-book/5f2ad9c418.html');
+Uri dser_21920 = Uri.parse('https://heyzine.com/flip-book/57fcf0b7df.html');
 String title = "";
 
 class Economicbokdata extends StatefulWidget {
@@ -41,7 +41,7 @@ class Economicbokdata extends StatefulWidget {
 
 class _EconomicbokdataState extends State<Economicbokdata> {
   Future<void> _launch(Uri url) async {
-    //  await UL.canLaunchUrl(url) ? await UL.launchUrl(url) : Text("not found");
+    await UL.canLaunchUrl(url) ? await UL.launchUrl(url) : Text("not found");
 
     try {
       if (!await UL.launchUrl(url)) {

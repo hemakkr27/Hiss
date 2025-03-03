@@ -35,7 +35,7 @@ class _ImageListnState extends State<ImageListn> {
   Future<List<ImageData>?> fetchData() async {
     try {
       http.Response response = await http.get(Uri.parse(
-          'http://164.100.200.46/hiisapi/imglist/' +
+          'http://103.87.24.58/hiisapi/imglist/' +
               widget.year +
               "/" +
               widget.secode));
@@ -75,7 +75,7 @@ class _ImageListnState extends State<ImageListn> {
                   return InkWell(
                     onTap: (() => setState(() {
                           selectedindex = index;
-                          Shareurl = "http://164.100.200.46/dsofiles/" +
+                          Shareurl = "http://103.87.24.58/dsofiles/" +
                               widget.year +
                               "/Final/" +
                               imageResponse![index].imgurl;
@@ -104,7 +104,7 @@ class _ImageListnState extends State<ImageListn> {
                                   quarterTurns:
                                       selectedindex == index ? rotatetrun : 0,
                                   child: Image.network(
-                                    "http://164.100.200.46/dsofiles/" +
+                                    "http://103.87.24.58/dsofiles/" +
                                         widget.year +
                                         "/Final/" +
                                         imageResponse![index].imgurl,

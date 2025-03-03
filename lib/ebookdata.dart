@@ -3,16 +3,27 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as UL;
 
-Uri dser_1112 = Uri.parse('https://heyzine.com/flip-book/69724e6f10.html');
-Uri dser_1213 = Uri.parse('https://heyzine.com/flip-book/e34919551b.html');
-Uri dser_1314 = Uri.parse('https://heyzine.com/flip-book/2f17b3dd09.html');
-Uri dser_1415 = Uri.parse('https://heyzine.com/flip-book/5bc9234e98.html');
-Uri dser_1516 = Uri.parse('https://heyzine.com/flip-book/21f8863d8a.html');
-Uri dser_1617 = Uri.parse('https://heyzine.com/flip-book/6e2df523b1.html');
-Uri dser_1718 = Uri.parse('https://heyzine.com/flip-book/2647217802.html');
-Uri dser_1819 = Uri.parse('https://heyzine.com/flip-book/bdbe75dabe.html');
-Uri dser_1920 = Uri.parse('https://heyzine.com/flip-book/804056209c.html');
-Uri dser_2021 = Uri.parse('https://heyzine.com/flip-book/02b5a7ad2a.html');
+Uri dser_1112 = Uri.parse('https://heyzine.com/flip-book/8bfb0bb11f.html');
+Uri dser_1213 = Uri.parse('https://heyzine.com/flip-book/c80a0fc35d.html');
+Uri dser_1314 = Uri.parse('https://heyzine.com/flip-book/a66266d513.html');
+Uri dser_1415 = Uri.parse('https://heyzine.com/flip-book/07946f46fd.html');
+Uri dser_1516 = Uri.parse('https://heyzine.com/flip-book/ee79b5677a.html');
+Uri dser_1617 = Uri.parse('https://heyzine.com/flip-book/9fb96abde6.html');
+Uri dser_1718 = Uri.parse('https://heyzine.com/flip-book/85cb6c8078.html');
+Uri dser_1819 = Uri.parse('https://heyzine.com/flip-book/620ac5072f.html');
+Uri dser_1920 = Uri.parse('https://heyzine.com/flip-book/f9b5575e7f.html');
+Uri dser_2021 = Uri.parse('https://heyzine.com/flip-book/be69883400.html');
+
+// Uri dser_1112 = Uri.parse('https://heyzine.com/flip-book/69724e6f10.html');
+// Uri dser_1213 = Uri.parse('https://heyzine.com/flip-book/e34919551b.html');
+// Uri dser_1314 = Uri.parse('https://heyzine.com/flip-book/2f17b3dd09.html');
+// Uri dser_1415 = Uri.parse('https://heyzine.com/flip-book/5bc9234e98.html');
+// Uri dser_1516 = Uri.parse('https://heyzine.com/flip-book/21f8863d8a.html');
+// Uri dser_1617 = Uri.parse('https://heyzine.com/flip-book/6e2df523b1.html');
+// Uri dser_1718 = Uri.parse('https://heyzine.com/flip-book/2647217802.html');
+// Uri dser_1819 = Uri.parse('https://heyzine.com/flip-book/bdbe75dabe.html');
+// Uri dser_1920 = Uri.parse('https://heyzine.com/flip-book/804056209c.html');
+// Uri dser_2021 = Uri.parse('https://heyzine.com/flip-book/02b5a7ad2a.html');
 String title = "";
 
 class ebookdata extends StatefulWidget {

@@ -28,8 +28,8 @@ class _GalryAndCamraUploadState extends State<GalryAndCamraUpload> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        RaisedButton(
-                          color: Colors.greenAccent,
+                        ElevatedButton(
+                          //color: Colors.greenAccent,
                           onPressed: () {
                             _getFromGallery();
                           },
@@ -38,8 +38,8 @@ class _GalryAndCamraUploadState extends State<GalryAndCamraUpload> {
                         Container(
                           height: 40.0,
                         ),
-                        RaisedButton(
-                          color: Colors.lightGreenAccent,
+                        ElevatedButton(
+                          //color: Colors.lightGreenAccent,
                           onPressed: () {
                             _getFromCamera();
                           },
