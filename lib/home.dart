@@ -33,7 +33,7 @@ class _HomePagenewState extends State<HomePagenew> {
   Future<List<PartData>?> fetchData() async {
     try {
       http.Response response =
-          await http.get(Uri.parse('http://164.100.200.46/hiisapi/PartMas'));
+          await http.get(Uri.parse('http://103.87.24.58/hiisapi/PartMas'));
       if (response.statusCode == 200) {
         partResponse = partDataFromJson(response.body);
 
@@ -53,7 +53,7 @@ class _HomePagenewState extends State<HomePagenew> {
   Future<List<SectionData>?> fetchsectData(String id) async {
     try {
       http.Response response = await http
-          .get(Uri.parse('http://164.100.200.46/hiisapi/SectionMas/' + id));
+          .get(Uri.parse('http://103.87.24.58/hiisapi/SectionMas/' + id));
       if (response.statusCode == 200) {
         sectionResponse = sectionDataFromJson(response.body);
         return sectionResponse;
@@ -68,7 +68,7 @@ class _HomePagenewState extends State<HomePagenew> {
   Future<List<ChapterData>?> fetchchepttData() async {
     try {
       http.Response response =
-          await http.get(Uri.parse('http://164.100.200.46/hiisapi/Chapter'));
+          await http.get(Uri.parse('http://103.87.24.58/hiisapi/Chapter'));
       if (response.statusCode == 200) {
         chapterResponse = chapterDataFromJson(response.body);
         //  chapterResponse1 = chapterResponse;

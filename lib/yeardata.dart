@@ -24,7 +24,7 @@ class _yeardataclsState extends State<yeardatacls> {
   Future<List<Yearsdata>?> fetchData() async {
     try {
       http.Response response = await http.get(Uri.parse(
-          'http://164.100.200.46/hiisapi/ListYears/' + widget.seccode));
+          'http://103.87.24.58/hiisapi/ListYears/' + widget.seccode));
       if (response.statusCode == 200) {
         yearResponse = yearsdataFromJson(response.body);
         setState(() {});
