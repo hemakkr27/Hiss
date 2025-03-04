@@ -14,8 +14,8 @@ void main() => runApp(MaterialApp(
 final ThemeData _themeData = ThemeData(
   brightness: Brightness.light,
   primarySwatch: colorCustom,
-  accentColor: Colors.deepPurpleAccent,
-  buttonColor: Colors.purple,
+  // accentColor: Colors.deepPurpleAccent,
+  // buttonColor: Colors.purple,
 );
 //  0XFF7986CB
 //   0xFF00ACC1
@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
             //ImageListn()
             //  MyHomePage());
             Firstscrn()
+           //  Firstscrn()
         //  LocSlider(),
         );
   }

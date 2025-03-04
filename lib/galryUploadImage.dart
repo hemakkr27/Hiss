@@ -28,23 +28,46 @@ class _GalryAndCamraUploadState extends State<GalryAndCamraUpload> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        RaisedButton(
-                          color: Colors.greenAccent,
+                        ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.lightGreenAccent, // Background color
+  ),
                           onPressed: () {
                             _getFromGallery();
                           },
                           child: const Text("PICK FROM GALLERY"),
                         ),
+
+                        // hema comment 
+                        // RaisedButton(
+                        //   color: Colors.greenAccent,
+                        //   onPressed: () {
+                        //     _getFromGallery();
+                        //   },
+                        //   child: const Text("PICK FROM GALLERY"),
+                        // ),
                         Container(
                           height: 40.0,
                         ),
-                        RaisedButton(
-                          color: Colors.lightGreenAccent,
-                          onPressed: () {
-                            _getFromCamera();
-                          },
-                          child: const Text("PICK FROM CAMERA"),
-                        )
+// hema comment
+
+                        // RaisedButton(
+                        //   color: Colors.lightGreenAccent,
+                        //   onPressed: () {
+                        //     _getFromCamera();
+                        //   },
+                        //   child: const Text("PICK FROM CAMERA"),
+                        // )
+
+                        ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.lightGreenAccent, // Background color
+  ),
+  onPressed: () {
+    _getFromCamera();
+  },
+  child: const Text("PICK FROM CAMERA"),
+)
                       ],
                     ),
                   )
