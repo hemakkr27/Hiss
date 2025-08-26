@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
 
   // Define the URL for sharing the app
   final String appShareUrl =
-      "https://drive.google.com/file/d/1uwnPLoqgIKReesRHUFbFZCKC5TML9rrQ/view";
-       // Replace with actual app URL
+      "https://drive.google.com/file/d/1evE4X3Kx0pCbgvkpOpA8B9N8uv4lOL8S/view";
+  // Replace with actual app URL
 
   // Method to handle sharing the app link using flutter_share
   Future<void> _shareApp(BuildContext context) async {
